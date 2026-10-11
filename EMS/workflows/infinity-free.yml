@@ -26,4 +26,4 @@ jobs:
           server: ${{ftpupload.net }}
           username: ${{ secrets.if0_43142735 }}
           password: ${{ secrets.PeEgo6m1HKci }}
-          server-dir: /cc106-project.infinityfree.me
+          server-dir: /cc106-project.infinityfree.me/htdocs
