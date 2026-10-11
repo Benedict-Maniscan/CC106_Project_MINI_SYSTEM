@@ -5,14 +5,15 @@ on:
       - main
 
 jobs:
-  deploy:
+  web-deploy:
+  name: FTP Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
-      - name: Set up PHP
-        uses: shivammathur/setup-php@v2
+      - name: upload files to FTP
+        uses: samkirkland/FTP-Deploy-Action@4.0.0
         with:
           php-version: '7.4'
 
@@ -23,6 +24,6 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
           server: ${{ftpupload.net }}
-          username: ${{ secrets.if0_42890218 }}
-          password: ${{ secrets.Ben07132006 }}
+          username: ${{ secrets.if0_43142735 }}
+          password: ${{ secrets.PeEgo6m1HKci }}
           server-dir: coder-ems.ifree.page/htdocs
