@@ -2,22 +2,22 @@ name: Deploy to InfinityFree
 on:
   push:
     branches:
-      - main 
+      - main # Change to this branch will trigger the publish
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+      - name: FTP Deploy
+        uses-on: unbuntu-latest
+        steps:
+          - name: get latest code
+            uses: actions/setup-node@v3
 
-      - name: Deploy to InfinityFree
+      - name: upload file via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.1.0
         with:
-          server: ${{ secrets.INFINITYFREE_SERVER }}
-          username: ${{ secrets.INFINITYFREE_USERNAME }}
-          password: ${{ secrets.INFINITYFREE_PASSWORD }}
-          protocol: ftps
-          local-dir: ./EMS/
-          server-dir: /htdocs/
-          dangerous-clean-slate: false
+          server: ${{ secrets.ftpupload.net }}
+          username: ${{ secrets.if0_42890218 }}
+          password: ${{ secrets.Ben07132006 }}
+         server-dir:coder-ems.ifree.page
