@@ -2,22 +2,27 @@ name: Deploy to InfinityFree
 on:
   push:
     branches:
-      - main # Change to this branch will trigger the publish
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: FTP Deploy
-        uses-on: unbuntu-latest
-        steps:
-          - name: get latest code
-            uses: actions/setup-node@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: upload file via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.1.0
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
         with:
-          server: ${{ secrets.ftpupload.net }}
+          php-version: '7.4'
+
+      - name: Install dependencies
+        run: composer install --no-dev --optimize-autoloader
+
+      - name: Deploy to InfinityFree
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: ${{ftpupload.net }}
           username: ${{ secrets.if0_42890218 }}
           password: ${{ secrets.Ben07132006 }}
-         server-dir:/coder-ems.ifree.page
+          server-dir: /htdocs
