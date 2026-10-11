@@ -20,4 +20,4 @@ jobs:
           server: ${{ secrets.ftpupload.net }}
           username: ${{ secrets.if0_42890218 }}
           password: ${{ secrets.Ben07132006 }}
-         server-dir:coder-ems.ifree.page
+         server-dir:/coder-ems.ifree.page
